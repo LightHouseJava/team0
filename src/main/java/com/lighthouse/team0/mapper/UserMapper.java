@@ -10,8 +10,8 @@ import com.lighthouse.team0.entity.User;
 @Mapper
 public interface UserMapper {
 	
-	@Insert("insert into users values (#{userName}, #{password})")
-	public void insertNewUser(@Param("userName") String userName, @Param("password") String password);
+	@Insert("insert into users values (#{user.userName}, #{user.password})")
+	public void insertNewUser(@Param("user") User user);
 	
 	@Select("SELECT EXISTS(SELECT 1 FROM users WHERE username=#{userName})")
 	public boolean checkUserExists(@Param("userName") String userName);
@@ -19,3 +19,5 @@ public interface UserMapper {
 	@Select("SELECT * FROM users WHERE username = #{userName}")
     public User findByUserName(@Param("userName") String userName);
 }
+
+

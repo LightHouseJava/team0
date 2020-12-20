@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Add a blog 
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <form action="#" th:action="@{/newBlogSubmission}" th:object="${blog}" method="post" >
+            <input type="hidden" name="username" th:value="#{username}">
+                <div class="field is-horizontal">
+                    <div class="field-label is-medium">
+                        <label class="label">Title</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input is-medium" name="title" type="text" th:field="*{title}" placeholder="Enter a title">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-small">
+                        <label class="label">Subtitle</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input is-small" name="subtitle" type="text"  th:field="*{subtitle}" placeholder="Enter a subtitle">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Body</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <textarea  name="body"   th:field="*{body}" class="textarea is-hovered is-large"></textarea>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Image</label>
+                        </div>
+                        <div class="field-body">
+                                <div class="field">
+                                        <div class="file is-info is-centered has-name is-boxed">
+                                            <label class="file-label">
+                                                <input class="file-input"   th:field="*{image}" type="file" name="image">
+                                                <span class="file-cta">
+                                                    <span class="file-icon">
+                                                        <i class="fas fa-cloud-upload-alt"></i>
+                                                    </span>
+                                                    <span class="file-label">
+                                                        image file
+                                                    </span>
+                                                </span>
+                                                <span class="file-name">
+                                                    upload an image from here
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                
+
+<button type="submit">Create</button>
+            </form>
+        </div>
+
+    </section>
+
+
+
+
+</body>
+
+</html>

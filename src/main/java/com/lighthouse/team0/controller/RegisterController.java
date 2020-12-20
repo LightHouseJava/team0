@@ -29,7 +29,7 @@ public class RegisterController {
 			model.addAttribute("userNameExistsMessage", "User name has been used, please login this one or register a new one.");
 			return "register";
 		}else {
-			userMapper.insertNewUser(newUser.getUserName(), newUser.getPassword());
+			userMapper.insertNewUser(newUser);
 			model.addAttribute("registerFinishedMessage", "You have registered successfully! Now you can sign in.");
 			return "register";
 		}
